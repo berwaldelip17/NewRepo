@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+</head>
+<body>
+    <h1>Welcome to Web Application</h1>
+ 
+ <h1>Login</h1>
+    <form id="loginForm">
+        <label for="user">User:</label>
+        <input type="text" id="user" name="user"><br>
+        <label for="pass">Pass:</label>
+        <input type="password" id="pass" name="pass"><br>
+        <button type="submit">Submit</button>
+    </form>
+    <div id="message"></div>
+    <div>
+     <nav>
+        <ul>
+                     
+        </ul>
+    </nav>
+   </div>
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const user = document.getElementById('user').value;
+            const pass = document.getElementById('pass').value;
+            if (user === 'user' && pass === 'pass') {
+                localStorage.setItem('loggedIn', 'true');
+                window.location.href = 'home.html';
+            } else {
+                document.getElementById('message').innerText = 'Invalid credentials';
+            }
+        });
+    </script>
+</body>
+</html>
